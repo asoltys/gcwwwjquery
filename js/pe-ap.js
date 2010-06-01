@@ -23,6 +23,7 @@ var PE = {
 	    /** LOAD SUPPORTING PLUGINS **/
 	    
 	    PE.load('goc.pngfix.js');
+	    PE.load('goc.equalheight.js');
 	    
 		PE.parameters = props /** DEPERICATED : Backward Compatibility **/ ;
 		
@@ -73,4 +74,3 @@ var PE = {
     	return jQuery("script[id='goc_plugin_" + name + "']").attr('src');
     }
 };
-
