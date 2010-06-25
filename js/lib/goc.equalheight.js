@@ -90,4 +90,4 @@ $.fn.equalHeights = function(px) {
 /**
 *  Runtime
 **/
- $(function(){ $('.equalize').equalHeights(); });
+ $(function(){ $('.equalize').equalHeights(true); });
