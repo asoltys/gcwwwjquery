@@ -42,7 +42,7 @@ var PE = {
 				 for (var name in PE.parameters[key])
 				 {
 					 var aMpersand = (nCount > 0 ) ? "&" : "" ;
-					 myPluginLoader += "" + aMpersand + name + "=" +  PE.parameters[key][name];
+					 myPluginLoader += "" + aMpersand + name + "=" +  escape(PE.parameters[key][name]);
 					 ++nCount;
 				 }
 			 }else {
