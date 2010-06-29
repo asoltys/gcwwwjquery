@@ -15,15 +15,15 @@ var PE = {
 	    /** JS Location - end **/
 	    
 	    /** LOAD MANDITORY SUPPORTING LIBRARY AND PLUGINS FEATURES **/
-	    PE.load('goc.utils.js');
-	    PE.load('goc.skipnav.js');
+	    PE.load('wet-boew.utils.js');
+	    PE.load('wet-boew.skipnav.js');
 	    PE.load('jquery.hotkeys-0.7.9.min.js');
-	    PE.load('goc.tooltips.js');
+	    PE.load('wet-boew.tooltips.js');
 	    
 	    /** LOAD SUPPORTING PLUGINS **/
 	    
-	    PE.load('goc.pngfix.js');
-	    PE.load('goc.equalheight.js');
+	    PE.load('wet-boew.pngfix.js');
+	    PE.load('wet-boew.equalheight.js');
 	    
 		PE.parameters = props /** DEPERICATED : Backward Compatibility **/ ;
 		
@@ -34,7 +34,7 @@ var PE = {
 			 *  		   : Value - will be the parameters ( if any ) to pass to the plug-in main function 
 			 *  Notes : All methods will be fired on the Document.Ready JQuery to ensure proper DOM Loading
 			 *  **/
-			 var myPluginLoader = PE.liblocation+"plugins/goc."+[key]+".js?";
+			 var myPluginLoader = PE.liblocation+"plugins/wet-boew."+[key]+".js?";
 			 
 			 if ( typeof(PE.parameters[key]) == 'object' )
 			 {
@@ -49,7 +49,7 @@ var PE = {
 				 myPluginLoader += "id=" +  PE.parameters[key];
 			};
 			/** Append the script to the page DOM for autoloading ( Safari 2 & Opera 8 safe ) **/
-			document.write('<script type="text/javascript" src="'+myPluginLoader+'" id="goc_plugin_'+[key]+'"><\/script>');
+			document.write('<script type="text/javascript" src="'+myPluginLoader+'" id="wet-boew_plugin_'+[key]+'"><\/script>');
 			
 		
 		}			
@@ -71,6 +71,6 @@ var PE = {
     },
     
     loadParams : function (name, plugin){
-    	return jQuery("script[id='goc_plugin_" + name + "']").attr('src');
+    	return jQuery("script[id='wet-boew_plugin_" + name + "']").attr('src');
     }
 };
