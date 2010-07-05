@@ -1,6 +1,6 @@
-/* WEB EXPERIENCE TOOLKIT (WET) | BOITE A OUTILS DE L'EXPERIENCE WEB (BOEW) 
-TERMS AND CONDITIONS OF USE: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
-CONDITIONS REGISSANT L'UTILISATION : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+/* Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
+Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
 */
 
 /** JavaScript / JQuery Capabilities with Name-spaced HTML **/
@@ -14,18 +14,18 @@ var PE = {
 	    PE.liblocation = jQuery("script[id='progressive']").attr('src').replace("pe-ap.js","");
 	    /** JS Location - end **/
 	    
-	    /** LOAD MANDITORY SUPPORTING LIBRARY AND PLUGINS FEATURES **/
+	    /** Load mandatory supporting library and plugins features **/
 	    PE.load('wet-boew.utils.js');
 	    PE.load('wet-boew.skipnav.js');
 	    PE.load('jquery.hotkeys-0.7.9.min.js');
 	    PE.load('wet-boew.tooltips.js');
 	    
-	    /** LOAD SUPPORTING PLUGINS **/
+	    /** Load supporting plugins **/
 	    
 	    PE.load('wet-boew.pngfix.js');
 	    PE.load('wet-boew.equalheight.js');
 	    
-		PE.parameters = props /** DEPERICATED : Backward Compatibility **/ ;
+		PE.parameters = props /** DEPRICATED: Backward Compatibility **/ ;
 		
 		for(key in PE.parameters) {
 			/** This is new functionality that will allow for plug-ins to be dynamically loaded per page
