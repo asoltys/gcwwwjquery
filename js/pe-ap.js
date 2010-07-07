@@ -1,6 +1,6 @@
-/* Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+/* Web Experience Toolkit (WET) / BoÃ®te Ã  outils de l'expÃ©rience Web (BOEW)
 Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
-Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+Conditions rÃ©gissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
 */
 
 /** JavaScript / JQuery Capabilities with Name-spaced HTML **/
@@ -25,7 +25,7 @@ var PE = {
 	    PE.load('wet-boew.pngfix.js');
 	    PE.load('wet-boew.equalheight.js');
 	    
-		PE.parameters = props /** DEPRICATED: Backward Compatibility **/ ;
+		PE.parameters = props /** DEPRECATED: Backward Compatibility **/ ;
 		
 		for(key in PE.parameters) {
 			/** This is new functionality that will allow for plug-ins to be dynamically loaded per page
