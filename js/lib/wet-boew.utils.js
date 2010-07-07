@@ -53,8 +53,18 @@ var Utils = {
         	var parameters = parseUri(jQuery("script[id='wet-boew_plugin_" + name + "']").attr('src')).queryKey;
              return parameters;
         		},
-        addCSSSupportFile : function(pathtofile) { document.write('<link rel="stylesheet" href="'+pathtofile+'" type="text/css" media="screen" />');  },
-        
+       // Defect #864 - Workaround suggested - Dave Schindler 
+       addCSSSupportFile: function(pathtofile) {
+               var $link = jQuery('<link rel="stylesheet" href="' + pathtofile + '" type="text/css" media="screen" />').appendTo('head');
+               // See http://www.subchild.com/2010/05/20/cross-browser-problem-with-dynamic-css-loading-with-jquery-1-4-solved/
+               $link.attr({
+                   href: pathtofile,
+                   rel: 'stylesheet',
+                   type: 'text/css',
+                   media: 'screen'
+               });
+              
+           },
         addKeyboardBindingToPlugin : function(objec, keyboardaction, keyboardsequence, func) {
         	objec.focus(function(){
         		objec.bind(keyboardaction, keyboardsequence, func);
