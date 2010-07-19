@@ -17,7 +17,7 @@ var PE = {
 	    /** Load mandatory supporting library and plugins features **/
 	    PE.load('wet-boew.utils.js');
 	    PE.load('wet-boew.skipnav.js');
-	    PE.load('jquery.hotkeys-0.7.9.min.js');
+	    PE.load('jquery.hotkeys.js');
 	    PE.load('wet-boew.tooltips.js');
 	    
 	    /** Load supporting plugins **/
