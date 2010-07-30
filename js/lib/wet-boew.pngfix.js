@@ -17,6 +17,14 @@ var PngFix = {
 				
 			});
 			var badBrowser = (/MSIE ((5\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32");
+	   			/**
+				 * Requested Background Image Cache fix
+				 * #Defect - Défaut #1073 [http://tbs-sct.ircan.gc.ca/issues/1073?lang=eng]
+				 */
+				document.execCommand("BackgroundImageCache",false,true);
+				/*
+				 * End of IE 5.5 - 6 Background Image Cache Fix
+				 */
 	   		if (badBrowser) {
 	     		$('img.pngfix').each(function() {
 			       		if (!this.complete) {
