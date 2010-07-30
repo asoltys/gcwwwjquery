@@ -91,5 +91,14 @@ var Utils =
     getPageLanguage: function ()
     {
         return jQuery("meta[name='dc.language']").attr('content');
-    }
+    },
+    /**
+     * Preloader function for jQuery [http://engineeredweb.com/blog/09/12/preloading-images-jquery-and-javascript]
+    */
+    preLoadImages: function() {
+        for(var i = 0; i<arguments.length; i++)
+        {
+          jQuery("<img>").attr("src", arguments[i]);
+        }
+      }
 };
