@@ -17,15 +17,17 @@ var PngFix = {
 				
 			});
 			var badBrowser = (/MSIE ((5\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32");
+	   			
+				 
+	   		if (badBrowser) {
 	   			/**
-				 * Requested Background Image Cache fix
-				 * #Defect - Défaut #1073 [http://tbs-sct.ircan.gc.ca/issues/1073?lang=eng]
-				 */
-				document.execCommand("BackgroundImageCache",false,true);
+				* Requested Background Image Cache fix
+				* #Defect - Défaut #1073 [http://tbs-sct.ircan.gc.ca/issues/1073?lang=eng]
+				*/
+				try { document.execCommand("BackgroundImageCache",false,true); } catch(err) {}
 				/*
 				 * End of IE 5.5 - 6 Background Image Cache Fix
-				 */
-	   		if (badBrowser) {
+				*/
 	     		$('img.pngfix').each(function() {
 			       		if (!this.complete) {
 			        		 this.onload = function() { PngFix.fixPng(this); };
