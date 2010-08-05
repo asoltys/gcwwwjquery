@@ -102,7 +102,7 @@ var Utils =
         }
       },
      
-     hasFlash = function() {
+     hasFlash : function() {
  
      	var pv = Utils.playerVersion().match(/\d+/g);
      	var rv = String([arguments[0], arguments[1], arguments[2]]).match(/\d+/g) || String(Utils.pluginOptions.version).match(/\d+/g);
@@ -119,13 +119,13 @@ var Utils =
      },
      
      /** Baseline Options incase none were set for flash player settings **/
-     pluginOptions = {
+     pluginOptions : {
      	expressInstall: false,
      	update: true,
      	version: '8.0.0' // Default base line for GoC
      },
      
-     playerVersion = function() {
+     playerVersion : function() {
      	// ie
      		try {
      			try {
