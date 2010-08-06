@@ -50,7 +50,7 @@ var Tltps = {
             if (Tltps.parent == null) {
                 Tltps.parent = {
                     x: Tltps.getRealPosition(obj, "x") - 3,
-                    y: Tltps.getRealPosition(obj, "y") + 2
+                    y: Tltps.getRealPosition(obj, "y") + ($.browser.msie ? 2 : 12)
                 };
             }
             Tltps.parent.y += obj.offsetHeight;
