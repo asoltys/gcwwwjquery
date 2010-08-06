@@ -60,7 +60,6 @@ var overFlowFix = {
 			this.maxRightWidth = $('#cn-right-col-gap').width();
 		   	}
 		
-		alert('Center Column Width ::' + this.maxCentreWidth + ' :: ' + 'Left Column Width ::' + this.maxLeftWidth + ' :: ' + 'Right Column Width ::' + this.maxRightWidth);
 		// Check to see if the left column has been stretched. If so, call fixOverflow to fix it.
 		if ( this.maxLeftWidth > 0 && $('#cn-left-col').width() > this.maxLeftWidth) {
 		   this.adjust("#cn-left-col", this.maxLeftWidth);
