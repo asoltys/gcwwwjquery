@@ -69,6 +69,14 @@ var PE = {
     	}
     	
     },
+    /** Method to autoload plugins to be available to all webpages 
+     *  @Params: jsSrc ( name of plugin file ), jParam ( escaped query of parameters ), key ( name of parameter 0)
+     *  @return: void
+     **/
+    autoload: function(jsSrc, jParam, key ){
+       document.write('<script type="text/javascript" src="'+PE.liblocation+"plugins/"+jsSrc+'?'+jParam+'" id="wet-boew_plugin_'+key+'"><\/script>');
+    
+    },
     
     loadParams : function (name, plugin){
     	return jQuery("script[id='wet-boew_plugin_" + name + "']").attr('src');
