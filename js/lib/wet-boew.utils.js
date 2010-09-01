@@ -81,6 +81,21 @@ var Utils =
         });
 
     },
+    addIECSSSupportFile: function(pathtofile, version)
+    {
+	    var condition="";
+	    if (version == null){
+		    condition="IE";
+	    }else if(version <= 6){
+		    condition="lte IE 6";
+	    }else if (version > 6){
+		    condition = "IE " + version;
+	    }
+	    
+	    if (condition != ""){
+		    document.write('<!--[if ' + condition + ']><link rel="stylesheet" href="' + pathtofile + '" type="text/css" media="screen" /><![endif]-->');
+	    }
+    },
     addKeyboardBindingToPlugin: function (objec, keyboardaction, keyboardsequence, func)
     {
         objec.focus(function ()
