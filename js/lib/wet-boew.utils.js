@@ -105,7 +105,8 @@ var Utils =
     },
     getPageLanguage: function ()
     {
-        return jQuery("meta[name='dc.language']").attr('content');
+        //return jQuery("meta[name='dc.language']").attr('content');
+        return PE.language;
     },
     /**
      * Preloader function for jQuery [http://engineeredweb.com/blog/09/12/preloading-images-jquery-and-javascript]
