@@ -8,7 +8,7 @@ var PE = {
     progress: function(props){
 	
 	   /** Page Language - is set by the Meta Data Element [ dc.language ] **/
-	    PE.language = jQuery("meta[name='dc.language']").attr('content'); 
+	    PE.language = jQuery("meta[name='dc.language'], meta[name='dcterms.language']").attr('content'); 
 	   /** Page Language - end **/
 	   /** JS Location - The browser helps set this up for us **/
 	    PE.liblocation = jQuery("script[id='progressive']").attr('src').replace("pe-ap.js","");
@@ -69,14 +69,6 @@ var PE = {
     		document.write('<script type="text/javascript" src="'+PE.liblocation+"lib/"+jsSrc+'"><\/script>');
     	}
     	
-    },
-    /** Method to autoload plugins to be available to all webpages 
-     *  @Params: jsSrc ( name of plugin file ), jParam ( escaped query of parameters ), key ( name of parameter 0)
-     *  @return: void
-     **/
-    autoload: function(jsSrc, jParam, key ){
-       document.write('<script type="text/javascript" src="'+PE.liblocation+"plugins/"+jsSrc+'?'+jParam+'" id="wet-boew_plugin_'+key+'"><\/script>');
-    
     },
     
     loadParams : function (name, plugin){
