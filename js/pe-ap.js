@@ -24,6 +24,7 @@ var PE = {
 	    
 	    PE.load('wet-boew.pngfix.js');
 	    PE.load('wet-boew.equalheight.js');
+	    PE.load('wet-boew.storage.js');
 	    
 		PE.parameters = props /** DEPRECATED: Backward Compatibility **/ ;
 		
