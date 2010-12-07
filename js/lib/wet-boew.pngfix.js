@@ -40,6 +40,22 @@ var ieOptimzier = {
 	}
 };
 
+/**
+ *  Absolute position fix - ie 6
+ ***************************************/
+ var ie6CSSTweak = {
+    tweakgap : function(){
+       $('#cn-right-col-gap').css('right', $('#cn-right-col').position().right );
+    },
+    tweakheight : function(){
+      var h =$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").height(
+             $("#cn-body-inner-1col, #cn-body-inner-2col, cn-body-inner-3col")[0].height() - 10
+         );
+    }
+ }
+ 
+ 
+ 
 var overFlowFix = {
 	
 	maxLeftWidth: 0,
@@ -99,5 +115,8 @@ $("document").ready(function(){
 	  PngFix.helpIe();
 	  overFlowFix.stabilize();
 	  ieOptimzier.optimize();
+	  
+	  ie6Tweak.tweakheight();
+	  ie6Tweak.tweakgap();
 	}
 });
