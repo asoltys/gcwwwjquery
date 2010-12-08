@@ -43,15 +43,16 @@ var ieOptimzier = {
 /**
  *  Absolute position fix - ie 6
  ***************************************/
+ /*
  var ie6CSSTweak = {
     tweakgap : function(){
 		$('#cn-right-col-gap').css('right',0).css('margin-right',$('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left);
     },
     tweakheight : function(){
-		$('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-3col').css('border-width')).css('position','static');
+		$('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-3col').css('border-width')).css('position','relative');
 		$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").css('height',($('#cn-foot').offset().top - $('#cn-left-col-gap').offset().top));
-    }
- }
+	}
+ }*/
  
  
  
@@ -115,7 +116,7 @@ $("document").ready(function(){
 	  overFlowFix.stabilize();
 	  ieOptimzier.optimize();
 	  
-	  ie6CSSTweak.tweakheight();
-	  ie6CSSTweak.tweakgap();
+	  /*ie6CSSTweak.tweakheight();
+	  ie6CSSTweak.tweakgap();*/
 	}
 });
