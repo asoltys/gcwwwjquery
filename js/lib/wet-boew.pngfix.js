@@ -45,12 +45,11 @@ var ieOptimzier = {
  ***************************************/
  var ie6CSSTweak = {
     tweakgap : function(){
-       $('#cn-right-col-gap').css('right', $('#cn-right-col').position().right );
+		$('#cn-right-col-gap').css('right',0).css('margin-right',$('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left);
     },
     tweakheight : function(){
-      var h =$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").height(
-             $("#cn-body-inner-1col, #cn-body-inner-2col, cn-body-inner-3col")[0].height() - 10
-         );
+		$('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-3col').css('border-width')).css('position','static');
+		$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").css('height',($('#cn-foot').offset().top - $('#cn-left-col-gap').offset().top));
     }
  }
  
@@ -116,7 +115,7 @@ $("document").ready(function(){
 	  overFlowFix.stabilize();
 	  ieOptimzier.optimize();
 	  
-	  ie6Tweak.tweakheight();
-	  ie6Tweak.tweakgap();
+	  ie6CSSTweak.tweakheight();
+	  ie6CSSTweak.tweakgap();
 	}
 });
