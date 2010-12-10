@@ -134,6 +134,10 @@ var Utils =
      	return true;
      },
      
+     hasSilverlight : function() {
+     	return false;
+     },
+     
      /** Baseline Options incase none were set for flash player settings **/
      pluginOptions : {
      	expressInstall: false,
