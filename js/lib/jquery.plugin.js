@@ -17,7 +17,6 @@
                allowFullscreen: "false",
                allowScriptAccess: "always",
                bgcolor: "#000000",
-               wmode : 'transparent',
                // flashvars are a complilations of a few variables
                flashvars : function(obj) {
                  var vars = ''; 
@@ -39,7 +38,6 @@
             data : 'data:application/x-silverlight-2,',
             parameters : {
               uiculture : (PE.language === 'eng') ? 'en' : 'fr',
-              wmode : 'transparent',
               initParams :  function(obj) {
                  var vars = ''; 
                  for (var i in obj ) {
