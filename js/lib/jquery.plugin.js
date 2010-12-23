@@ -17,11 +17,12 @@
                allowFullscreen: "false",
                allowScriptAccess: "always",
                bgcolor: "#000000",
+               movie : function(obj) { return obj.data },
                // flashvars are a complilations of a few variables
                flashvars : function(obj) {
                  var vars = ''; 
                  for (var i in obj ) {
-                    if (i.match(/captions|media|height|width|scale|posterimg|id/i) && obj[i]) {
+                    if (i.match(/captions|media|height|width|scale|posterimg|id/) && obj[i]) {
                       vars += (vars.length > 0 ) ? '&amp;'+i+'='+encodeURIComponent(obj[i]) : i+'='+encodeURIComponent(obj[i]) ;
                     }
                   }
@@ -154,6 +155,7 @@
       html += _getAttributeHtml("data", this.data);
       html += _getAttributeHtml("width", this.width) + _getAttributeHtml("height", this.height) ;
       html += _getAttributeHtml("type", this.mimeType) + '>\n';
+     // html += ($.browser.msie) ? '  <param name="movie" value="'+this.data+'" />' : '';
       for (var i in this.parameters) {
         if (typeof this.parameters[i] === 'function'){
             html += '  <param name="'+i+'" value="'+this.parameters[i](this)+'" />'
