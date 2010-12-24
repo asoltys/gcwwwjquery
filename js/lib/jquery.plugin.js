@@ -117,7 +117,20 @@
          } catch(e) {
            // This is a non IE browser
             try {
-                  v = window.navigator.plugins[this.plugin].version;
+		var v;
+		if (window.navigator.plugins[this.plugin].version != undefined)
+		{
+		  v = window.navigator.plugins[this.plugin].version;
+		}
+		else
+		{
+			var versionRegex = new RegExp('((\\d*\\.){1,3}\\d*)');
+			if (window.navigator.plugins[this.plugin].description.match(versionRegex))
+			{
+				m = versionRegex.exec(window.navigator.plugins[this.plugin].description);
+				v = m[0];
+			}
+		}
                   if (v && !(typeof navigator.mimeTypes != "undefined" && navigator.mimeTypes[this.mimeType] && !navigator.mimeTypes[this.mimeType].enabledPlugin)) { 
                      var pv = v.split(".");
                      pv[1] = (pv[1]) ? pv[1] : 0;
