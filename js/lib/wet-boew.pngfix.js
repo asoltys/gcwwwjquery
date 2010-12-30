@@ -88,14 +88,19 @@ var overFlowFix = {
 	},
 	adjust: function(container, maxWidth) {
 		var fixesNeeded = false;
+		var pixelHeight = 0;
 		var actualHeight = 0;
+		var parentPixelHeight = 0;
 		
 		// Allow each top-level element that is wider than maxWidth to overflow the container
 		container.children().each(function() {
 			if ($(this).innerWidth() > maxWidth) {
-				if (!overFlowFix.adjust($(this), maxWidth)) {
-					actualHeight = (Math.round((($(this).outerHeight(true))/16)*Math.pow(10,1))/Math.pow(10,1));
+				if (this.tagName != "/HEADER" && ($(this).is("table") || !overFlowFix.adjust($(this), maxWidth))) {
+					pixelHeight = $(this).outerHeight(true);
+					actualHeight = ((Math.round(((pixelHeight)/16)*Math.pow(10,1))/Math.pow(10,1)));
 					$(this).css('position', 'absolute').wrap('<div style="width: ' + (maxWidth - 8) + 'px; height: ' + actualHeight + 'em;"></div>');
+					parentPixelHeight = $(this).parent().outerHeight(true);
+					if (pixelHeight > parentPixelHeight) $(this).parent().css('height', actualHeight*(pixelHeight/parentPixelHeight) + 'em');
 				}
 				fixesNeeded = true;
 			}
