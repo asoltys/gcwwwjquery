@@ -46,7 +46,7 @@ var ieOptimzier = {
  
  var ie6CSSTweak = {
     tweakgap : function(){
-		if ($('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left != 0) {
+		if ($('#cn-right-col-gap').length > 0 && $('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left != 0) {
 			$('#cn-right-col-gap').css('right',parseInt($('#cn-right-col-gap').css('right').substring(0, $('#cn-right-col-gap').css('right').length - 2)) + ($('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left));
 		}
     },
