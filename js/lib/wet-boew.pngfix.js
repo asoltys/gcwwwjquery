@@ -43,16 +43,21 @@ var ieOptimzier = {
 /**
  *  Absolute position fix - ie 6
  ***************************************/
- /*
+ 
  var ie6CSSTweak = {
     tweakgap : function(){
-		$('#cn-right-col-gap').css('right',0).css('margin-right',$('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left);
+		if ($('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left != 0) {
+			$('#cn-right-col-gap').css('right',parseInt($('#cn-right-col-gap').css('right').substring(0, $('#cn-right-col-gap').css('right').length - 2)) + ($('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left));
+		}
     },
     tweakheight : function(){
 		$('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-3col').css('border-width')).css('position','relative');
 		$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").css('height',($('#cn-foot').offset().top - $('#cn-left-col-gap').offset().top));
+		$('#cn-left-col-gap').css('width',$('#cn-left-col').css('width'));
+		$('#cn-centre-col-gap').css('width',$('#cn-centre-col-inner').css('width'));
+		$('#cn-right-col-gap').css('width',$('#cn-right-col').css('width'));
 	}
- }*/
+ }
  
  
  
@@ -121,7 +126,11 @@ $("document").ready(function(){
 	  overFlowFix.stabilize();
 	  ieOptimzier.optimize();
 	  
-	  /*ie6CSSTweak.tweakheight();
-	  ie6CSSTweak.tweakgap();*/
+	  ie6CSSTweak.tweakheight();
+	  ie6CSSTweak.tweakgap();
+	  $(window).resize(function() {
+		ie6CSSTweak.tweakheight();
+		setTimeout("ie6CSSTweak.tweakgap()",20);
+	  });
 	}
 });
