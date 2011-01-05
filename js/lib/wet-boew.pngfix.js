@@ -58,7 +58,7 @@ var ieOptimzier = {
 		
 		if ($('#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap').length > 0) {
 			$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").css('height',($('#cn-foot').offset().top - $('#cn-centre-col-gap').offset().top));
-			$('#cn-centre-col-gap').css('width',$('#cn-centre-col').css('width'));
+			$('#cn-centre-col-gap').css('width',$('#cn-centre-col').css('width')).css('left',$('#cn-centre-col').position().left);
 			if ($('#cn-left-col-gap').length > 0) $('#cn-left-col-gap').css('width',$('#cn-left-col').css('width'));
 			if ($('#cn-right-col-gap').length > 0) $('#cn-right-col-gap').css('width',$('#cn-right-col').css('width'));
 		}
