@@ -51,7 +51,7 @@ var ieOptimzier = {
 		}
     },
     tweakheight : function(){
-		if ($('#cn-body-inner-3col').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-3col').css('border-width')).css('position','relative');
+		if ($('#cn-body-inner-3col').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('position','relative').css('border-right','none');
 		else if ($('#cn-body-inner-2col').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-2col').css('border-width')).css('position','relative');
 		else if ($('cn-body-inner-2col-right').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('cn-body-inner-2col-right').css('border-width')).css('position','relative');
 		else $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-1col').css('border-width')).css('position','relative');
