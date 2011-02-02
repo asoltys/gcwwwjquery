@@ -68,9 +68,10 @@ var Utils =
         return parameters;
     },
     // Defect #864 - Workaround suggested - Dave Schindler 
+    // Removed the href attribution in the original link creation to address warnings trigger by IE 8
     addCSSSupportFile: function (pathtofile)
     {
-        var $link = jQuery('<link rel="stylesheet" href="' + pathtofile + '" type="text/css" media="screen" />').appendTo('head');
+        var $link = jQuery('<link rel="stylesheet" type="text/css" media="screen" />').appendTo('head');
         // See http://www.subchild.com/2010/05/20/cross-browser-problem-with-dynamic-css-loading-with-jquery-1-4-solved/
         $link.attr(
         {
