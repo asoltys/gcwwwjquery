@@ -166,6 +166,8 @@
       html += (window.ActiveXObject && this.classID) ? '<object classid="clsid:'+(this.classID)+'"' : '<object ' ;
       html += _getAttributeHtml("id", this.id);
       html += _getAttributeHtml("data", this.data);
+      html += _getAttributeHtml("title", this.title);
+      html += _getAttributeHtml("aria-label",this.arialabel);
       html += _getAttributeHtml("width", this.width) + _getAttributeHtml("height", this.height) ;
       html += _getAttributeHtml("type", this.mimeType) + '>\n';
      // html += ($.browser.msie) ? '  <param name="movie" value="'+this.data+'" />' : '';
@@ -177,6 +179,8 @@
         }
 
       }
+      // Add in SC 1.1.1 Technical pass for text in object tag ( WCAG 2.0 )
+      html += '<p>'+this.title+'</p>';
       html += '</object>\n';
       return html;
     };
