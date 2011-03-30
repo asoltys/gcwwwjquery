@@ -118,7 +118,7 @@
            // This is a non IE browser
             try {
 		var v;
-		if (window.navigator.plugins[this.plugin].version != undefined)
+		if (window.navigator.plugins[this.plugin].version != undefined && window.navigator.plugins[this.plugin].version != "")
 		{
 		  v = window.navigator.plugins[this.plugin].version;
 		}
