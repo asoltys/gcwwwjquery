@@ -22,7 +22,7 @@
                flashvars : function(obj) {
                  var vars = ''; 
                  for (var i in obj ) {
-                    if (i.match(/captions|media|height|width|scale|posterimg|id/) && obj[i]) {
+                    if (!i.match(/activex|classID|data|isAvailable|mimeType|namespace|parameters|plugin|required|embed|isVersionSupported/) && obj[i]) {
                       vars += (vars.length > 0 ) ? '&amp;'+i+'='+encodeURIComponent(obj[i]) : i+'='+encodeURIComponent(obj[i]) ;
                     }
                   }
@@ -42,7 +42,7 @@
               initParams :  function(obj) {
                  var vars = ''; 
                  for (var i in obj ) {
-                    if (i.match(/captions|media|height|width|scale|posterimg|id/i) && obj[i]) {
+                    if (!i.match(/activex|data|isAvailable|mimeType|namespace|parameters|plugin|required|embed|isVersionSupported/i) && obj[i]) {
                       vars += (vars.length > 0 ) ? ','+i+'='+encodeURIComponent(obj[i]) : i+'='+encodeURIComponent(obj[i]) ;
                     }
                   }
