@@ -82,3 +82,13 @@ var PE = {
     	return jQuery("script[id='wet-boew_plugin_" + name + "']").attr('src');
     }
 };
+
+
+//Functionality to detect if CSS enabled at the browser level
+$.extend(window, {cssEnabled : null});
+$(document).ready(function() {
+    cssTest = $("<div style=\"height:0px;\">&#160;</div>");
+    $("body").append(cssTest);
+    cssEnabled = cssTest.height() === 0;
+    $.extend(window, {cssEnabled : cssEnabled});
+});
