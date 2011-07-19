@@ -83,12 +83,12 @@ var PE = {
     }
 };
 
-
 //Functionality to detect if CSS enabled at the browser level
 $.extend(window, {cssEnabled : null});
 $(document).ready(function() {
-    cssTest = $("<div style=\"height:0px;\">&#160;</div>");
+    cssTest = $("<div id=\"cssTest\" style=\"height:0px;\">&#160;</div>");
     $("body").append(cssTest);
     cssEnabled = cssTest.height() === 0;
     $.extend(window, {cssEnabled : cssEnabled});
+	$("#cssTest").remove();
 });
