@@ -1,7 +1,10 @@
-/* Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
-Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
-*/
+/*!
+ * jQuery integration v1.2 / Intégration jQuery v1.2
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
+ * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+ */
+ 
 /**
 *    PNGFix - To allow for IE 5.5 + to show proper transparency for png's
 *    Note :: Increased the fix to encompass all page png's
