@@ -1,9 +1,7 @@
-/*!
- * jQuery integration v1.2 / Intégration jQuery v1.2
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
- * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
- */
+/* Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
+Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+*/
 
 /*
 	Init Class for all manditory elements of the Web Experience Toolkit (WET)
@@ -55,6 +53,7 @@ var Tltps = {
                     y: Tltps.getRealPosition(obj, "y") + ($.browser.msie ? 2 : 12)
                 };
             }
+			if (/MSIE ((5\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32") Tltps.parent.x = Tltps.parent.x - 280; // Fix IE6 positioning
             Tltps.parent.y += obj.offsetHeight;
             Tltps.tooltip.style.left = Tltps.parent.x + "px";
             Tltps.tooltip.style.top = Tltps.parent.y + "px";
