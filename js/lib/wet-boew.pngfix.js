@@ -85,20 +85,17 @@ var overFlowFix = {
 		if ($('#cn-right-col').length > 0) this.maxRightWidth = $('#cn-right-col-gap').width();
 		
 		// Fix left column if it has been stretched
-		if ( this.maxLeftWidth > 0 && $('#cn-left-col').outerWidth() > this.maxLeftWidth) {
-			this.adjust($('#cn-left-col'), this.maxLeftWidth);
-			$('#cn-left-col').css('overflow-x','visible');
-		}		
+		if ( this.maxLeftWidth > 0 && $('#cn-left-col').outerWidth() > this.maxLeftWidth) this.adjust($('#cn-left-col'), this.maxLeftWidth);
+		
 		// Fix centre column if it has been stretched
-		if ($('#cn-centre-col-inner').outerWidth() > $('#cn-centre-col-gap').width()) {
-			this.adjust($('#cn-centre-col-inner'), this.maxCentreWidth);
-			$('#cn-centre-col').css('overflow-x','visible');
-		}
+		if ($('#cn-centre-col-inner').outerWidth() > $('#cn-centre-col-gap').width()) this.adjust($('#cn-centre-col-inner'), this.maxCentreWidth);
+		
 		// Fix right column if it has been stretched
-		if (this.maxRightWidth > 0 && $('#cn-right-col').outerWidth() > this.maxRightWidth) {
-			this.adjust($('#cn-right-col'), this.maxRightWidth);
-			$('#cn-right-col').css('overflow-x','visible');
-		}
+		if (this.maxRightWidth > 0 && $('#cn-right-col').outerWidth() > this.maxRightWidth) this.adjust($('#cn-right-col'), this.maxRightWidth);
+		
+		$('#cn-left-col').css('overflow-x','visible');
+		$('#cn-centre-col').css('overflow-x','visible');
+		$('#cn-right-col').css('overflow-x','visible');
 	},
 	adjust: function(container, maxWidth) {
 		var fixesNeeded = false;
