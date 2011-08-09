@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * jQuery integration v1.2 / Intégration jQuery v1.2
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
@@ -15,7 +15,9 @@ var PE = {
 	   /** JS Location - The browser helps set this up for us **/
 	    PE.liblocation = jQuery("script[id='progressive']").attr('src').replace("pe-ap.js","");
 	    /** JS Location - end **/
-	    
+	    PE.uiloaded = false;
+	    /** jquery ui load state **/
+
 	    /** Load mandatory supporting library and plugins features **/
 	    PE.load('wet-boew.utils.js');
 	    PE.load('wet-boew.skipnav.js');
@@ -72,12 +74,35 @@ var PE = {
     	}
     	
     },
+
+     load_ui: function(themeenabled){
+        // stop the ui from being loaded more than once
+	if (PE.uiloaded){ return true };
+
+	var use_theme = (typeof(themeenabled)!='undefined') ? themeenabled : "use-theme";
+	/** load the jquery ui file **/
+	document.write('<script type="text/javascript" src="'+PE.liblocation +"lib/ui/jquery-ui.min.js"+'"><\/script>');
+
+	if (use_theme != "no-theme") {
+	// load the default style
+ 	var $link = jQuery('<link rel="stylesheet" type="text/css" media="all" />').appendTo('head');
+        
+	$link.attr(
+        {
+            	href: PE.liblocation + "support/ui/themes/default/jquery-ui.css",
+            	rel: 'stylesheet',
+            	type: 'text/css',
+            	media: 'all'
+        	});
+	}
+	PE.uiloaded = true;
+    },
     
     /** Requested by User 
      *  - Suggestion :  http://tbs-sct.ircan.gc.ca/issues/796?lang=eng
      ***********************/
     loadExternal: function(jsSrc){
-      document.write('<script type="text/javascript" src="'+jsSrc+'"><\/script>');
+      
     },
     
     loadParams : function (name, plugin){
