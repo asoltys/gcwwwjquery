@@ -102,7 +102,7 @@ var PE = {
      *  - Suggestion :  http://tbs-sct.ircan.gc.ca/issues/796?lang=eng
      ***********************/
     loadExternal: function(jsSrc){
-      
+         document.write('<script type="text/javascript" src="'+jsSrc+'"><\/script>');
     },
     
     loadParams : function (name, plugin){
