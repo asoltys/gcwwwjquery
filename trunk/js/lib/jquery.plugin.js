@@ -1,5 +1,5 @@
 /*!
- * jQuery integration v1.3a2 / Intégration jQuery v1.3a2
+ * jQuery integration v1.2 / Intégration jQuery v1.2
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
  * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
@@ -24,6 +24,7 @@
 				allowFullscreen: "false",
 				allowScriptAccess: "always",
 				bgcolor: "#000000",
+				wmode: 'opaque',
 				movie : function(obj) { return obj.data },
 				// flashvars are a complilations of a few variables
 				flashvars : function(obj) {
@@ -46,6 +47,8 @@
 			data : 'data:application/x-silverlight-2,',
 			parameters : {
 				uiculture : (PE.language === 'eng') ? 'en' : 'fr',
+				windowless : 'true',
+				background: '#000000',
 				initParams :  function(obj) {
 					var vars = ''; 
 					for (var i in obj ) {
