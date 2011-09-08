@@ -22,6 +22,7 @@ var PE = {
 	    PE.load('wet-boew.utils.js');
 	    PE.load('wet-boew.skipnav.js');
 	    PE.load('jquery.hotkeys.js');
+	    PE.load('jquery.metadata.js');
 	    PE.load('wet-boew.tooltips.js');
 
 	    /** Load supporting plugins **/
@@ -121,12 +122,19 @@ var PE = {
 
 
 
-//Functionality to detect if CSS enabled at the browser level
+
 $.extend(window, {cssEnabled : null});
+
 $(document).ready(function() {
-    cssTest = $("<div id=\"cssTest\" style=\"height:0px;\">&#160;</div>");
-    $("body").append(cssTest);
-    cssEnabled = cssTest.height() === 0;
-    $.extend(window, {cssEnabled : cssEnabled});
+	//Functionality to detect if CSS enabled at the browser level
+	cssTest = $("<div id=\"cssTest\" style=\"height:0px;\">&#160;</div>");
+	$("body").append(cssTest);
+	cssEnabled = cssTest.height() === 0;
+	$.extend(window, {cssEnabled : cssEnabled});
 	$("#cssTest").remove();
+	
+	 //Set the metadata type (HTML5 or XHTML)
+	if (jQuery("html").attr("xml:lang")  == undefined || jQuery("html").attr("xml:lang")  == ""){
+		jQuery.metadata.setType("html5"); 
+	}
 });
