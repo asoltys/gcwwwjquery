@@ -1,5 +1,5 @@
 /*!
- * jQuery integration v1.3a2 / Intégration jQuery v1.3a2
+ * jQuery integration v1.3a5 / Intégration jQuery v1.3a5
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
  * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
@@ -97,4 +97,7 @@ $.fn.equalHeights = function(px) {
 /**
 *  Runtime
 **/
- $(function(){ $('.equalize').equalHeights(true); });
+$(function(){ 
+	ResizeEvents.eventElement.bind('x-initial-sizes x-text-resize x-zoom-resize x-window-resize', function (){$('.equalize').children().css('min-height','').parent().equalHeights(true);});
+	ResizeEvents.initialise();
+});
