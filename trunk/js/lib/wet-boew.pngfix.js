@@ -1,5 +1,5 @@
 /*!
- * jQuery integration v1.3a5 / Intégration jQuery v1.3a5
+ * jQuery integration v1.3a6 / Intégration jQuery v1.3a6
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
  * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
@@ -71,47 +71,69 @@ var ieOptimzier = {
  
  
 var overFlowFix = {
-	
-	maxLeftWidth: 0,
+	width: 0,
+	centreWidth: 0,
 	maxCentreWidth: 0,
+	leftWidth: 0,
+	maxLeftWidth: 0,
+	rightWidth: 0,
 	maxRightWidth: 0,
 	
 	stabilize: function() {
+		this.centreWidth = $('#cn-centre-col-inner').outerWidth();
+		if ($('#cn-left-col').length > 0) this.leftWidth = $('#cn-left-col').outerWidth();
+		if ($('#cn-right-col').length > 0) this.rightWidth = $('#cn-right-col').outerWidth();
+		this.width = this.centreWidth + this.leftWidth + this.rightWidth;
+
+		// Is overflowing happening?
+		if (this.width > $('#cn-cols-inner').width()) {
+			// Figure out the maxWidths for each of the columns
+			$('#cn-centre-col-inner').children().addClass("cn-overflow-test");
+			this.maxCentreWidth = $('#cn-centre-col-inner').width();
+			$('#cn-centre-col-inner').children().removeClass("cn-overflow-test");
+			
+			if ($('#cn-left-col').length > 0) {
+				$('#cn-left-col').children().addClass("cn-overflow-test");
+				this.maxLeftWidth = $('#cn-left-col').width();
+				$('#cn-left-col').children().removeClass("cn-overflow-test");
+			}
+			
+			if ($('#cn-right-col').length > 0) {
+				$('#cn-right-col').children().addClass("cn-overflow-test");
+				this.maxRightWidth = $('#cn-right-col').width();
+				$('#cn-right-col').children().removeClass("cn-overflow-test");
+			}
+			
+			// Fix centre column if it has been stretched
+			if (this.centreWidth > this.maxCentreWidth) {this.adjust($('#cn-centre-col-inner'), this.maxCentreWidth);}
+
+			// Fix left column if it has been stretched
+			if (this.maxLeftWidth > 0 && this.leftWidth > this.maxLeftWidth) {this.adjust($('#cn-left-col'), this.maxLeftWidth);}
+			
+			// Fix right column if it has been stretched
+			if (this.maxRightWidth > 0 && this.rightWidth > this.maxRightWidth) {this.adjust($('#cn-right-col'), this.maxRightWidth);}
+		}
 		
-		// Figure out the maxWidths for each of the columns
-		if ($('#cn-body-inner-1col').length > 0) this.maxCentreWidth = $('#cn-centre-col').width();
-		else this.maxCentreWidth = $('#cn-centre-col-gap').width() - ($('#cn-centre-col-inner').outerWidth() - $('#cn-centre-col-inner').width());
-		if ($('#cn-left-col').length > 0) this.maxLeftWidth = $('#cn-left-col-gap').width();
-		if ($('#cn-right-col').length > 0) this.maxRightWidth = $('#cn-right-col-gap').width();
-		
-		// Fix left column if it has been stretched
-		if ( this.maxLeftWidth > 0 && $('#cn-left-col').outerWidth() > this.maxLeftWidth) this.adjust($('#cn-left-col'), this.maxLeftWidth);
-		
-		// Fix centre column if it has been stretched
-		if ($('#cn-centre-col-inner').outerWidth() > $('#cn-centre-col-gap').width()) this.adjust($('#cn-centre-col-inner'), this.maxCentreWidth);
-		
-		// Fix right column if it has been stretched
-		if (this.maxRightWidth > 0 && $('#cn-right-col').outerWidth() > this.maxRightWidth) this.adjust($('#cn-right-col'), this.maxRightWidth);
-		
-		$('#cn-left-col').css('overflow-x','visible');
-		$('#cn-centre-col').css('overflow-x','visible');
-		$('#cn-right-col').css('overflow-x','visible');
+		// Enable overflowing
+		$('#cn-left-col, #cn-centre-col, #cn-right-col').css('overflow-x','visible');
 	},
 	adjust: function(container, maxWidth) {
 		var fixesNeeded = false;
 		var pixelHeight = 0;
 		var actualHeight = 0;
 		var parentPixelHeight = 0;
-		
+
 		// Allow each top-level element that is wider than maxWidth to overflow the container
 		container.children().each(function() {
 			if ($(this).innerWidth() > maxWidth) {
 				if (this.tagName != "/HEADER" && ($(this).is("table") || !overFlowFix.adjust($(this), maxWidth))) {
 					pixelHeight = $(this).outerHeight(true);
 					actualHeight = ((Math.round(((pixelHeight)/16)*Math.pow(10,1))/Math.pow(10,1)));
-					$(this).css('position', 'absolute').wrap('<div style="width: 98.5%; height: ' + actualHeight + 'em;"></div>');
+					$(this).css('position', 'absolute').wrap('<div style="width: 98.5%;height: ' + actualHeight + 'em;"></div>');
 					parentPixelHeight = $(this).parent().outerHeight(true);
 					if (pixelHeight > parentPixelHeight) $(this).parent().css('height', actualHeight*(pixelHeight/parentPixelHeight) + 'em');
+					if ($(this).offsetParent().offset().top == 0) $(this).css("top",$(this).offset().top);
+					else $(this).css("top",$(this).position().top);
 				}
 				fixesNeeded = true;
 			}
@@ -128,15 +150,17 @@ $("document").ready(function(){
 	PngFix.init(); 	
 	
 	if(PngFix.isOlderIE) {
-	  PngFix.helpIe();
-	  overFlowFix.stabilize();
-	  ieOptimzier.optimize();
+		PngFix.helpIe();
+		overFlowFix.stabilize();
+		ieOptimzier.optimize();
 	  
-	  ie6CSSTweak.tweakheight();
-	  ie6CSSTweak.tweakgap();
-	  $(window).resize(function() {
-		ie6CSSTweak.tweakheight();
-		setTimeout("ie6CSSTweak.tweakgap()",20);
-	  });
+		if ($("#cn-foot").css("z-index") == 2) {
+			ie6CSSTweak.tweakheight();
+			ie6CSSTweak.tweakgap();
+			$(window).resize(function() {
+				ie6CSSTweak.tweakheight();
+				setTimeout("ie6CSSTweak.tweakgap()",20);
+			});
+		}
 	}
 });

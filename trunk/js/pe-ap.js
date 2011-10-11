@@ -1,5 +1,5 @@
 ﻿/*!
- * jQuery integration v1.3a5 / Intégration jQuery v1.3a5
+ * jQuery integration v1.3a6 / Intégration jQuery v1.3a6
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
  * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
@@ -56,9 +56,10 @@ var PE = {
 			};
 			/** Append the script to the page DOM for autoloading ( Safari 2 & Opera 8 safe ) **/
 			document.write('<script type="text/javascript" src="'+myPluginLoader+'" id="wet-boew_plugin_'+[key]+'"><\/script>');
-
-
 		}
+		
+		// Initialize the resize events
+		//ResizeEvents.initialise();
     },
 
     /** language definition function **/
