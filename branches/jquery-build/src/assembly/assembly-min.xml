@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<assembly>
+    <id>min</id>
+    <baseDirectory></baseDirectory>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>target/wro</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <outputDirectory></outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>js</directory>
+            <outputDirectory></outputDirectory>
+            <excludes>
+                <exclude>**/wet-boew.*.js</exclude>
+                <exclude>pe-ap.js</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+</assembly>
