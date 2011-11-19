@@ -1,5 +1,5 @@
 ﻿/*!
- * jQuery integration v1.3a6 / Intégration jQuery v1.3a6
+ * jQuery integration v1.3a7 / Intégration jQuery v1.3a7
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
  * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
@@ -28,7 +28,6 @@ var PE = {
 	    /** Load supporting plugins **/
 		PE.load('jquery.resize-events.js');
 	    PE.load('wet-boew.pngfix.js');
-	    PE.load('wet-boew.equalheight.js');
 	    PE.load('wet-boew.storage.js');
 
 		PE.parameters = props /** DEPRECATED: Backward Compatibility **/ ;
@@ -58,8 +57,7 @@ var PE = {
 			document.write('<script type="text/javascript" src="'+myPluginLoader+'" id="wet-boew_plugin_'+[key]+'"><\/script>');
 		}
 		
-		// Initialize the resize events
-		//ResizeEvents.initialise();
+		PE.load('wet-boew.equalheight.js');
     },
 
     /** language definition function **/
