@@ -1,0 +1,29 @@
+/**
+ * 	SWARM - css supporting file for widgets builts with swarm object
+ *  @inspiration - jQuery UI Themeing
+ */
+
+/* 
+ * screen display
+ */
+@media screen, print {
+	
+	.swarm-ui {} /** the basic swarm container **/
+	.swarm-ui-button {}
+	.swarm-ui-header {}
+	
+	/** state type classes **/
+	.swarm-state-focus {}  /** this is both keyboard and mouse focus **/
+	.swarm-state-hidden {}
+	
+	
+	/** icons **/
+		
+}
+
+/*
+ * print only
+ */
+@media print {
+	
+}

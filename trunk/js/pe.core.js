@@ -54,7 +54,7 @@
 	         * @returns: location of JS framework for WET-BOEW
 	         */
 	        
-	        liblocation : $("script[id='progressive']").attr('src').replace(/pe.js.*$/i, ""),
+	        liblocation : $("script[id='progressive']").attr('src').replace(/pe-ap.js.*$/i, ""),
 	        /**
 	         * @property: browser
 	         * @property.flash : version of flash installed 0 if not installed
@@ -230,13 +230,13 @@
 	            // page specific global - load all supporting files
 	            var $link = $('<link rel="stylesheet" type="text/css" />').appendTo('head');
 	            // See http://www.subchild.com/2010/05/20/cross-browser-problem-with-dynamic-css-loading-with-jquery-1-4-solved/
-	            $link.attr({href : pe.liblocation + 'css/pe.css', rel : 'stylesheet', type : 'text/css'});
+	            $link.attr({href : pe.liblocation + 'css/wet-boew-pe.css', rel : 'stylesheet', type : 'text/css'});
 	            var dmode = $('script[src*="pe.fn."]').filter(function(){ return /\.js$/.test(this.src)}).map( function() { return this.src.replace(/^.*\.([^\.]+)\.js$/i,"$1") } ).toArray() ;
 	            // load all supporting files
 	            var $link2 = $('<link rel="stylesheet" type="text/css" />').appendTo('head');
 	            // See http://www.subchild.com/2010/05/20/cross-browser-problem-with-dynamic-css-loading-with-jquery-1-4-solved/
 	            $link2.attr({
-	                href : pe.liblocation + 'css/pe.theme'+( (pe.url($("script[id='progressive']").attr('src')).parameter['theme']) ? '.'+pe.url($("script[id='progressive']").attr('src')).parameter['theme'] : '')+'.css', rel : 'stylesheet', type : 'text/css'
+	                href : pe.liblocation + 'css/wet-boew-pe.theme'+( (pe.url($("script[id='progressive']").attr('src')).parameter['theme']) ? '.'+pe.url($("script[id='progressive']").attr('src')).parameter['theme'] : '')+'.css', rel : 'stylesheet', type : 'text/css'
 	            });
 	            // now check for the existance of development files
 	            // now start loading squences
@@ -249,9 +249,9 @@
 	                }
 	            };
 	            // now lets crawl the page for plugins
-	            $('[class^="pe-"]').each(function() {
+	            $('[class^="wet-boew-"]').each(function() {
 	                // so do we exec the function on those as well?
-	                var _fcall = $(this).attr('class').replace(/^pe-(\S*).*/i, "$1".toLowerCase());
+	                var _fcall = $(this).attr('class').replace(/^wet-boew-(\S*).*/i, "$1".toLowerCase());
 	                // now call the plugin logic on the element since we are there
 	                if(pe.fn.hasOwnProperty(_fcall) && pe.fn[_fcall].scope != 'global') {// do not re-run global set plugins 
 	                     if(!(jQuery.inArray(_fcall,dmode) > -1) ) {
