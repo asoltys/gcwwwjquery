@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<build targetfile="pe-ap.js" version="1.0">
+	<staging src="src">
+		<directory>css</directory>
+		<directory>images</directory>
+	</staging>
+	<dependencies src="third-party">
+		<module name="jquery.cookie" />
+		<module name="jquery.core"  minify="false"/>
+	</dependencies>
+</build>
