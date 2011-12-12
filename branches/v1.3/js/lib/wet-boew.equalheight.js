@@ -100,6 +100,7 @@ $.fn.equalHeights = function(px) {
 *  Runtime
 **/
 $(function(){ 
-	ResizeEvents.eventElement.bind('x-initial-sizes x-text-resize x-zoom-resize x-window-resize', function (){$('.equalize').children().css('min-height','').parent().equalHeights(true);});
+	$('.equalize').children().css('min-height','').parent().equalHeights(true);
+	ResizeEvents.eventElement.bind('x-text-resize x-zoom-resize x-window-resize', function (){$('.equalize').children().css('min-height','').parent().equalHeights(true);});
 	ResizeEvents.initialise();
 });
