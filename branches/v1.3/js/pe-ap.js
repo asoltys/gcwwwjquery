@@ -29,6 +29,7 @@ var PE = {
 		PE.load('jquery.resize-events.js');
 	    PE.load('wet-boew.pngfix.js');
 	    PE.load('wet-boew.storage.js');
+		PE.load('wet-boew.pie.js');
 
 		PE.parameters = props /** DEPRECATED: Backward Compatibility **/ ;
 
