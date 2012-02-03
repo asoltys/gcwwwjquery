@@ -33,6 +33,21 @@ var PngFix = {
  	}
 };
 
+
+var ie6Reflow = {
+    init: function(){
+       if ($.browser.msie && $.browser.version < 8 ) {
+         addLoadEvent(screenResolution);
+	window.onresize = screenResolution;
+	function screenResolution(){
+  	var pixels = document.documentElement.clientWidth;
+  	var style = (pixels>0&&pixels<=935)?'gc-elastic':(pixels>935&&pixels<=10000)?'gc-elastic':'gc-elastic';
+ 	 document.body.className=style;
+	};
+ 
+       }    
+    }
+}
 /**
 * Requested Background Image Cache fix
 *  Defect - Défaut #1073 [http://tbs-sct.ircan.gc.ca/issues/1073?lang=eng]
@@ -153,6 +168,7 @@ $("document").ready(function(){
 		PngFix.helpIe();
 		overFlowFix.stabilize();
 		ieOptimzier.optimize();
+		ie6Reflow.init();
 	  
 		if ($("#cn-foot").css("z-index") == 2) {
 			ie6CSSTweak.tweakheight();
