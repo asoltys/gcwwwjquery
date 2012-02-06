@@ -24,6 +24,7 @@ var PE = {
 	    PE.load('jquery.hotkeys.js');
 	    PE.load('jquery.metadata.js');
 	    PE.load('wet-boew.tooltips.js');
+		PE.load('jquery.hashchange.min.js');
 
 	    /** Load supporting plugins **/
 		PE.load('jquery.resize-events.js');
