@@ -140,4 +140,10 @@ $(document).ready(function() {
 	if (jQuery("html").attr("xml:lang")  == undefined || jQuery("html").attr("xml:lang")  == ""){
 		jQuery.metadata.setType("html5"); 
 	}
+	
+	/** Fixes focus issues with anchors in some browsers **/
+	//Move the focus to the anchored element on page load 
+	if (window.location.hash) $("#"+(window.location.hash).slice(1)+"").attr("tabindex","-1").focus();
+	//Move the focus to the anchored element on selecting a link to in page anchor
+	$("a[href^='#']").click(function() {$("#"+$(this).attr("href").slice(1)+"").attr("tabindex","-1").focus();});
 });
