@@ -1,8 +1,7 @@
 /*!
- * jQuery integration v1.3b1 / Intégration jQuery v1.3b1
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
- * Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+ * jQuery integration v1.3 / IntÃ©gration jQuery v1.3
+ * Web Experience Toolkit (WET) / BoÃ®te Ã  outils de l'expÃ©rience Web (BOEW)
+ * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
  */
  
 /**
