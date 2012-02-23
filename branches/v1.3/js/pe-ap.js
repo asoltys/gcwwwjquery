@@ -61,7 +61,7 @@ var PE = {
 		PE.load('wet-boew.equalheight.js');
     },
 	
-	url : function(d){d=d||window.location.href;if(!/^\w+:/.test(d)){var e=document.createElement('img');e.src=d;d=e.src}var o={key:["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","filename","query","anchor"],parser:{query:/(?:^|&)([^&=]*)=?([^&]*)/g,url:/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/}};var m=o.parser.url.exec(d);var f={};f.absolute=d;var i=14;while(i--)f[o.key[i]]=m[i]||"";f.parameter={};f[o.key[12]].replace(o.parser.query,function(a,b,c){if(b)f.parameter[b]=c});$.extend(true,f,{queryTokenized : (function(a){var b={};while(a[0]){var p = a.splice(0,1)[0].split("=");b[p[0]] = p[1];}return b;})(f.query.split("&")), pathTokenized : (f.path.split("/"))});return f},
+	url : function(d){d=d||window.location.href;if(!/^\w+:/.test(d)){var e=document.createElement('img');e.src=d;d=e.src}var o={key:["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","filename","query","anchor"],parser:{query:/(?:^|&)([^&=]*)=?([^&]*)/g,url:/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/}};var m=o.parser.url.exec(d);var f={};f.absolute=d;var i=14;while(i--)f[o.key[i]]=m[i]||"";f.parameter={};f[o.key[12]].replace(o.parser.query,function(a,b,c){if(b)f.parameter[b]=c});$.extend(true,f,{queryTokenized : (function(a){var b={};while(a[0]){var p = a.splice(0,1)[0].split("=");b[unescape(p[0].replace(/\+/g,  " "))] = unescape(p[1].replace(/\+/g,  " "));}return b;})(f.query.split("&")), pathTokenized : (f.path.split("/"))});return f},
 
     /** language definition function **/
    find_language : function() {
@@ -141,8 +141,9 @@ $(document).ready(function() {
 	}
 	
 	/** Fixes focus issues with anchors in some browsers **/
-	//Move the focus to the anchored element on page load 
-	if (window.location.hash) $("#"+(window.location.hash).slice(1)+"").attr("tabindex","-1").focus();
+	//Move the focus to the anchored element on page load
+	var exclude = ":not(a[href], input, button, textarea)"
+	if (window.location.hash) $("#"+(window.location.hash).slice(1)+exclude).attr("tabindex","-1").focus();
 	//Move the focus to the anchored element on selecting a link to in page anchor
-	$("a[href^='#']").click(function() {$("#"+$(this).attr("href").slice(1)+"").attr("tabindex","-1").focus();});
+	$("a[href^='#']").click(function() {$("#"+$(this).attr("href").slice(1)+exclude).attr("tabindex","-1").focus();});
 });
