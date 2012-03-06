@@ -1,5 +1,5 @@
 /*!
- * jQuery integration v1.3 / Intégration jQuery v1.3
+ * jQuery integration v1.32 / Intégration jQuery v1.32
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
  */
@@ -35,16 +35,14 @@ var PngFix = {
 
 var ie6Reflow = {
     init: function(){
-       if ($.browser.msie && $.browser.version < 8 ) {
-         addLoadEvent(screenResolution);
-	window.onresize = screenResolution;
-	function screenResolution(){
-  	var pixels = document.documentElement.clientWidth;
-  	var style = (pixels>0&&pixels<=935)?'gc-elastic':(pixels>935&&pixels<=10000)?'gc-elastic':'gc-elastic';
- 	 document.body.className=style;
-	};
- 
-       }    
+        /*addLoadEvent(screenResolution);*/
+		window.onresize = screenResolution;
+		function screenResolution(){
+			var pixels = document.documentElement.clientWidth;
+			var style = (pixels>0&&pixels<=935)?'gc-elastic':(pixels>935&&pixels<=10000)?'gc-elastic':'gc-elastic';
+			document.body.className=style;
+		};
+		screenResolution();
     }
 }
 /**
@@ -56,33 +54,6 @@ var ieOptimzier = {
 		try { document.execCommand("BackgroundImageCache",false,true); } catch(err) {}
 	}
 };
-
-/**
- *  Absolute position fix - ie 6
- ***************************************/
- 
- var ie6CSSTweak = {
-    tweakgap : function(){
-		if ($('#cn-right-col-gap').length > 0 && $('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left != 0) {
-			$('#cn-right-col-gap').css('right',parseInt($('#cn-right-col-gap').css('right').substring(0, $('#cn-right-col-gap').css('right').length - 2)) + ($('#cn-right-col-gap').offset().left - $('#cn-right-col').offset().left));
-		}
-    },
-    tweakheight : function(){
-		if ($('#cn-body-inner-3col').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('position','relative').css('border-right','none');
-		else if ($('#cn-body-inner-2col').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-2col').css('border-width')).css('position','relative').css('border-right','none');
-		else if ($('cn-body-inner-2col-right').length > 0) $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('cn-body-inner-2col-right').css('border-width')).css('position','relative').css('border-right','none');
-		else $('#cn-foot').css('height',$('#cn-foot-inner').height()).css('padding-bottom',$('#cn-body-inner-1col').css('border-top-width')).css('position','relative').css('border-right','none');
-		
-		if ($('#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap').length > 0) {
-			$("#cn-left-col-gap, #cn-centre-col-gap, #cn-right-col-gap").css('height',($('#cn-foot').offset().top - $('#cn-centre-col-gap').offset().top));
-			$('#cn-centre-col-gap').css('width',$('#cn-centre-col').css('width')).css('left',$('#cn-centre-col').position().left);
-			if ($('#cn-left-col-gap').length > 0) $('#cn-left-col-gap').css('width',$('#cn-left-col').css('width'));
-			if ($('#cn-right-col-gap').length > 0) $('#cn-right-col-gap').css('width',$('#cn-right-col').css('width'));
-		}
-	}
- }
- 
- 
  
 var overFlowFix = {
 	width: 0,
@@ -168,14 +139,5 @@ $("document").ready(function(){
 		overFlowFix.stabilize();
 		ieOptimzier.optimize();
 		ie6Reflow.init();
-	  
-		if ($("#cn-foot").css("z-index") == 2) {
-			ie6CSSTweak.tweakheight();
-			ie6CSSTweak.tweakgap();
-			$(window).resize(function() {
-				ie6CSSTweak.tweakheight();
-				setTimeout("ie6CSSTweak.tweakgap()",20);
-			});
-		}
 	}
 });

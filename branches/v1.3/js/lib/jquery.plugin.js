@@ -1,5 +1,5 @@
 /*!
- * jQuery integration v1.3 / Intégration jQuery v1.3
+ * jQuery integration v1.32 / Intégration jQuery v1.32
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
  */
